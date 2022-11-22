@@ -1,6 +1,5 @@
 const internModel = require('../models/InternModel')
 const { isValidEmail, isValidRequestBody, isValidName, isValidNumber } = require("../validator/validator")
-const mongoose = require('mongoose')
 const collegeModel = require('../models/collegeModel')
 
 
