@@ -10,9 +10,10 @@ const createIntern = async (req, res) => {
         const { name, mobile, email, collegeName } = reqBody
 
         if (!isValidRequestBody(reqBody)) return res.status(400).send({ status: false, message: "Collage data is required" })
-
-        if (!isValidName(name.toLowerCase().trim())) return res.status(400).send({ statuts: false, message: "name is required" })
-
+        
+        if (!name) return res.status(400).send({ status: false, message: "name is required" })   
+        if (!isValidName(name.toLowerCase().trim())) return res.status(400).send({ status: false, message: "name is invalide" })
+        
         if (!collegeName) return res.status(400).send({ statuts: false, message: "Collage name is required" })
 
         let collegeId = await collegeModel.findOne({ name: collegeName }).select({ _id: 1 })

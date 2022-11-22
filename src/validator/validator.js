@@ -10,7 +10,7 @@ const isValid = function (value) {
 const isValidName = function (abc) {
     if (typeof abc === 'undefined') return false;
     if (typeof abc != 'string' && abc.trim().length === 0) return false
-    const regex = /^[a-zA-Z]{3,100}$/;
+    const regex = /^[a-z/\s/A-Z]{3,100}$/;
     return regex.test(String(abc));
 }
 

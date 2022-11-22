@@ -8,7 +8,8 @@ const { isValidRequestBody, isValidName, } = require("../validator/validator")
       let reqBody = req.body
       const { name, fullName, logoLink } = req.body
       // ----------------collage name and fullName validation-----------------------
-      if (!isValidRequestBody(reqBody)) return res.status(400).send({ status: false, message: "College data is required" })
+      if (!isValidRequestBody(reqBody)) return res.status(400).send({ status: false, message: "College data is required" })  
+      
       if (!name) return res.status(400).send({ status: false, message: "name is required" })
       if (!isValidName(name.toLowerCase().trim())) return res.status(400).send({ status: false, message: "name is invalide" })
 
