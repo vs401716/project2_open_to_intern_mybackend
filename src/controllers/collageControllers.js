@@ -8,16 +8,16 @@ const { isValidRequestBody, isValidName, } = require("../validator/validator")
       let reqBody = req.body
       const { name, fullName, logoLink } = req.body
       // ----------------collage name and fullName validation-----------------------
-      if (!isValidRequestBody(reqBody)) return res.status(400).send({ status: false, message: "Collage data is require" })
+      if (!isValidRequestBody(reqBody)) return res.status(400).send({ status: false, message: "College data is required" })
       if (!name) return res.status(400).send({ status: false, message: "name is required" })
       if (!isValidName(name.toLowerCase().trim())) return res.status(400).send({ status: false, message: "name is invalide" })
 
       const clgName=await collegeModel.findOne({name})
       if(clgName) return res.status(400).send({statuts:false,message:"college name already exist"})
 
-      if (!fullName) return res.status(400).send({ status: false, message: "fullName is require" })
+      if (!fullName) return res.status(400).send({ status: false, message: "fullName is required" })
     
-      if (!logoLink) return res.status(400).send({ status: false, message: "loginlink is require" })
+      if (!logoLink) return res.status(400).send({ status: false, message: "loginlink is required" })
 
       const collegedata = await collegeModel.create(reqBody)
 
@@ -33,7 +33,7 @@ const { isValidRequestBody, isValidName, } = require("../validator/validator")
   const getcollegeDetails = async function(req,res){
       try{
       const name=req.query.name
-      if(!name) return res.status(400).send({statuts:false,message:"name is require"})
+      if(!name) return res.status(400).send({statuts:false,message:"name is required"})
       const collageData=await collegeModel.findOne({name})
       if(!collageData) return res.status(404).send({statuts:false,message:"collegename is not exist"})
 

@@ -17,7 +17,7 @@ const createIntern = async (req, res) => {
 
         let collegeId = await collegeModel.findOne({ name: collegeName }).select({ _id: 1 })
 
-        if (!collegeId) return res.status(400).send({ statuts: false, message: "invalide collage Name" })
+        if (!collegeId) return res.status(400).send({ statuts: false, message: "invalide college Name" })
         reqBody.collegeId = collegeId._id
 
 
