@@ -12,7 +12,7 @@ const createIntern = async (req, res) => {
 
         if (!isValidRequestBody(reqBody)) return res.status(400).send({ status: false, message: "Collage data is required" })
 
-        if (!isValidName(name)) return res.status(400).send({ statuts: false, message: "name is required" })
+        if (!isValidName(name.toLowerCase().trim())) return res.status(400).send({ statuts: false, message: "name is required" })
 
         if (!collegeName) return res.status(400).send({ statuts: false, message: "Collage name is required" })
 
