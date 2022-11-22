@@ -23,14 +23,14 @@ const createIntern = async (req, res) => {
 
         // --------------------------MobileNumber validation------------------
         if (!mobile) return res.status(400).send({ statuts: false, message: "Mobile number is required" })
-        if (!isValidNumber(mobile)) return res.status(400).send({ statuts: false, message: "mobile number is required" })
+        if (!isValidNumber(mobile)) return res.status(400).send({ statuts: false, message: "please provide valid mobile number" })
         let findMobile = await internModel.findOne({ mobile: mobile })
         if (findMobile) return res.status(400).send({ statuts: false, message: "Mobile number is Allrady taken" })
 
 
         // --------------------------Email validation------------------
         if (!email) return res.status(400).send({ statuts: false, message: "email is required" })
-        if (!isValidEmail(email)) return res.status(400).send({ statuts: false, message: "Email is not valide" })
+        if (!isValidEmail(email)) return res.status(400).send({ statuts: false, message: "please provide valid emailId" })
         let findMail = await internModel.findOne({ email: email })
         if (findMail) return res.status(400).send({ statuts: false, message: "Email id is Allrady taken" })
 

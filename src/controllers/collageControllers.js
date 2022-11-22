@@ -35,7 +35,7 @@ const { isValidRequestBody, isValidName, } = require("../validator/validator")
       const name=req.query.name
       if(!name) return res.status(400).send({statuts:false,message:"name is required"})
       const collageData=await collegeModel.findOne({name})
-      if(!collageData) return res.status(404).send({statuts:false,message:"collegename is not exist"})
+      if(!collageData) return res.status(404).send({statuts:false,message:"please provide valid college name"})
 
       const interns=await internModel.find({collegeId:collageData._id, isDeleted:false}).select(({name:1,email:1,mobile:1}))
 
