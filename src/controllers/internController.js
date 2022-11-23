@@ -18,7 +18,7 @@ const createIntern = async (req, res) => {
 
         let collegeId = await collegeModel.findOne({ name: collegeName }).select({ _id: 1 })
 
-        if (!collegeId) return res.status(400).send({ statuts: false, message: "invalide college Name" })
+        if (!collegeId) return res.status(404).send({ statuts: false, message: "Collage not found" })
         reqBody.collegeId = collegeId._id
 
 
