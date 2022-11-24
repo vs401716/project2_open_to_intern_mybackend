@@ -33,7 +33,7 @@ const { isValidRequestBody, isValidName, } = require("../validator/validator")
 //get-api =>fetch college and interns data 
   const getcollegeDetails = async function(req,res){
       try{
-      const name=req.query.name
+      const name=req.query.collegeName
       if(!name) return res.status(400).send({statuts:false,message:"name is required"})
       const collageData=await collegeModel.findOne({name})
       if(!collageData) return res.status(404).send({statuts:false,message:"please provide valid college name"})
